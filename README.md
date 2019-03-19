@@ -1,3 +1,5 @@
-# Signature Builder
+# Sign
 
-https://indebted.github.io/signature-builder
+Email signature builder
+
+https://indebted.github.io/sign

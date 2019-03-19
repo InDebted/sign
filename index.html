@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Signature Builder</title>
+  <title>Email Signature Builder</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -24,13 +24,13 @@
   </style>
 </head>
 
-<body style="padding: 100px 0 0 50px">
+<body style="padding: 50px 0 0 50px">
   <div class="row">
 
     <div class="col s4">
       <div class="card">
         <div class="card-content">
-          <span class="card-title">Signature Builder</span>
+          <span class="card-title">Email Signature Builder</span>
           <p style="color: #aaa; margin: 20px 0 30px">
             Fill in, click select, copy and paste into your gmail signature.
           </p>
@@ -68,74 +68,75 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-    const inputs = document.getElementsByTagName('input');
-    for (let i = 0; i < inputs.length; i++) {
-      inputs.item(i).addEventListener('change', update);
-      inputs.item(i).addEventListener('keyup', update);
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputs = document.getElementsByTagName('input');
+      const name = document.getElementById('name');
+      const jobTitle = document.getElementById('job-title');
+      const linkedin = document.getElementById('linkedin');
+      const phoneNumber = document.getElementById('phone-number');
+      const showAddress = document.getElementById('show-address');
 
-    update();
-    function update() {
-      const name = document.getElementById('name').value;
-      const jobTitle = document.getElementById('job-title').value;
-      const linkedin = document.getElementById('linkedin').value;
-      const phoneNumber = document.getElementById('phone-number').value;
-      const showAddress = document.getElementById('show-address').checked;
-      document.getElementById('signature').innerHTML = `
+      for (let i = 0; i < inputs.length; i++) {
+        inputs.item(i).addEventListener('change', update);
+        inputs.item(i).addEventListener('keyup', update);
+      }
+
+      update();
+      function update() {
+        document.getElementById('signature').innerHTML = `
         <tr style="border: none">
-          <td style="background: #DFE8FA; padding: 0; width: 2px"></td>
-          <td style="padding: 25px">
-            <div style="color: #2F384A; line-height: 1.7em">
-              <div style="font-size: 1.2em; color: #377DFF">${name}</div>
-              <div style="color: #6F788A">${jobTitle}</div>
-              <img src="logo.png" style="margin: 15px 2px; width: 125px">
-              ${linkedin ? `
-              <div>
-                <img src="linkedin.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
-                <a href="https://linkedin.com/in/${linkedin}" target="_blank" style="color: #2F384A">${linkedin}</a>
-              </div>
-              ` : ''}
-              ${phoneNumber ? `
-              <div>
-                <img src="call.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
-                <span>${phoneNumber}</span>
-              </div>
-              ` : ''}
-              <div>
-                <img src="language.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
-                <a href="https://indebted.co" target="_blank" style="color: #2F384A">https://indebted.co</a>
-              </div>
-              ${showAddress ? `
-              <div>
-                <img src="location.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
-                <span>Level 3, 100 Harris St Pyrmont, NSW 2009 Australia</span>
-              </div>
-              ` : ''}
+          <td style="background: #8F98AA; padding: 0; width: 2px"></td>
+          <td style="color: #2F384A; font-size: 0.9em; line-height: 1.7em; padding: 25px">
+            <div style="color: #377DFF; font-size: 1.1em">${name.value}</div>
+            <div style="color: #6F788A">${jobTitle.value}</div>
+            <img src="logo.svg" style="margin: 15px 2px; width: 125px">
+            ${linkedin.value ? `
+            <div>
+              <img src="linkedin.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
+              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #2F384A">${linkedin.value}</a>
             </div>
+            ` : ''}
+            ${phoneNumber.value ? `
+            <div>
+              <img src="call.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
+              <span>${phoneNumber.value}</span>
+            </div>
+            ` : ''}
+            <div>
+              <img src="language.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
+              <a href="https://indebted.co" target="_blank" style="color: #2F384A">https://indebted.co</a>
+            </div>
+            ${showAddress.checked ? `
+            <div>
+              <img src="location.svg" style="height: 1.2em; margin-right: 5px; vertical-align: sub">
+              <span>Level 3, 100 Harris St Pyrmont, NSW 2009 Australia</span>
+            </div>
+            ` : ''}
           </td>
         </tr>
       `;
-    }
-
-    document.getElementById('select').addEventListener('click', () => {
-      const el = document.getElementById('signature');
-      let body = document.body, range, sel;
-      if (document.createRange && window.getSelection) {
-        range = document.createRange();
-        sel = window.getSelection();
-        sel.removeAllRanges();
-        try {
-          range.selectNodeContents(el);
-          sel.addRange(range);
-        } catch (e) {
-          range.selectNode(el);
-          sel.addRange(range);
-        }
-      } else if (body.createTextRange) {
-        range = body.createTextRange();
-        range.moveToElementText(el);
-        range.select();
       }
+
+      document.getElementById('select').addEventListener('click', () => {
+        const el = document.getElementById('signature');
+        let body = document.body, range, sel;
+        if (document.createRange && window.getSelection) {
+          range = document.createRange();
+          sel = window.getSelection();
+          sel.removeAllRanges();
+          try {
+            range.selectNodeContents(el);
+            sel.addRange(range);
+          } catch (e) {
+            range.selectNode(el);
+            sel.addRange(range);
+          }
+        } else if (body.createTextRange) {
+          range = body.createTextRange();
+          range.moveToElementText(el);
+          range.select();
+        }
+      });
     });
   </script>
 </body>
