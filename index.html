@@ -31,19 +31,24 @@
       <div class="card">
         <div class="card-content">
           <span class="card-title">Email Signature Builder</span>
-          <p style="color: #aaa; margin: 20px 0 30px">
-            Fill in, click select, copy and paste into your gmail signature.
+          <p style="margin: 20px 0 0">
+            Fill this in, click select, copy and paste into your Gmail signature.
+          </p>
+          <p style="margin: 10px 0 30px">
+            <span style="text-decoration: underline">To avoid underline links</span>,
+            configure your Gmail signature on a different browser.
+            Google Chrome enforces underline links.
           </p>
           <div class="input-field">
-            <input id="name" type="text">
+            <input id="name" type="text" placeholder="Brooke Davis">
             <label for="name">Name</label>
           </div>
           <div class="input-field">
-            <input id="job-title" type="text">
+            <input id="job-title" type="text" placeholder="Virtual Assistant">
             <label for="job-title">Job Title</label>
           </div>
           <div class="input-field">
-            <input id="linkedin" type="text">
+            <input id="linkedin" type="text" placeholder="brookedavis">
             <label for="linkedin">LinkedIn Username</label>
           </div>
           <div class="input-field">
@@ -93,23 +98,29 @@
             ${linkedin.value ? `
             <div>
               <img src="png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #2F384A">${linkedin.value}</a>
+              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #2F384A; text-decoration: none">
+                ${linkedin.value}
+              </a>
             </div>
             ` : ''}
             ${phoneNumber.value ? `
             <div>
               <img src="png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #2F384A">${phoneNumber.value}</a>
+              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #2F384A; text-decoration: none">
+                ${phoneNumber.value}
+              </a>
             </div>
             ` : ''}
             <div>
               <img src="png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://indebted.co" target="_blank" style="color: #2F384A">https://indebted.co</a>
+              <a href="https://indebted.co" target="_blank" style="color: #2F384A; text-decoration: none">
+                https://indebted.co
+              </a>
             </div>
             ${showAddress.checked ? `
             <div>
               <img src="png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://www.google.com/maps/place/Level+3%2F100+Harris+St,+Pyrmont+NSW+2009" target="_blank" style="color: #2F384A">
+              <a href="https://www.google.com/maps/place/Level+3%2F100+Harris+St,+Pyrmont+NSW+2009" target="_blank" style="color: #2F384A; text-decoration: none">
                 Level 3, 100 Harris St Pyrmont, NSW 2009 Australia
               </a>
             </div>
