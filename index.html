@@ -99,7 +99,7 @@
             ${phoneNumber.value ? `
             <div>
               <img src="png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <span>${phoneNumber.value}</span>
+              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #2F384A">${phoneNumber.value}</a>
             </div>
             ` : ''}
             <div>
@@ -109,7 +109,9 @@
             ${showAddress.checked ? `
             <div>
               <img src="png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <span>Level 3, 100 Harris St Pyrmont, NSW 2009 Australia</span>
+              <a href="https://www.google.com/maps/place/Level+3%2F100+Harris+St,+Pyrmont+NSW+2009" target="_blank" style="color: #2F384A">
+                Level 3, 100 Harris St Pyrmont, NSW 2009 Australia
+              </a>
             </div>
             ` : ''}
           </td>
