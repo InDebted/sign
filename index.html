@@ -89,26 +89,26 @@
           <td style="color: #2F384A; font-size: 0.9em; line-height: 1.7em; padding: 25px">
             <div style="color: #377DFF; font-size: 1.1em">${name.value}</div>
             <div style="color: #6F788A">${jobTitle.value}</div>
-            <img src="img/logo.png" style="margin: 15px 2px">
+            <img src="png/logo.png" width="125" height="20" style="margin: 15px 2px">
             ${linkedin.value ? `
             <div>
-              <img src="img/linkedin.png" style="margin-right: 5px; vertical-align: sub">
+              <img src="png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
               <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #2F384A">${linkedin.value}</a>
             </div>
             ` : ''}
             ${phoneNumber.value ? `
             <div>
-              <img src="img/call.png" style="margin-right: 5px; vertical-align: sub">
+              <img src="png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
               <span>${phoneNumber.value}</span>
             </div>
             ` : ''}
             <div>
-              <img src="img/language.png" style="margin-right: 5px; vertical-align: sub">
+              <img src="png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
               <a href="https://indebted.co" target="_blank" style="color: #2F384A">https://indebted.co</a>
             </div>
             ${showAddress.checked ? `
             <div>
-              <img src="img/location.png" style="margin-right: 5px; vertical-align: sub">
+              <img src="png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
               <span>Level 3, 100 Harris St Pyrmont, NSW 2009 Australia</span>
             </div>
             ` : ''}
