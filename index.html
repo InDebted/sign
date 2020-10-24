@@ -8,17 +8,17 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <style>
     .input-field input[type=text]:focus+label {
-      color: #377DFF !important;
+      color: #474CDE !important;
     }
 
     .input-field input[type=text]:focus {
-      border-bottom: 1px solid #377DFF !important;
-      box-shadow: 0 1px 0 0 #377DFF !important;
+      border-bottom: 1px solid #474CDE !important;
+      box-shadow: 0 1px 0 0 #474CDE !important;
     }
 
     [type="checkbox"]:checked+span:not(.lever):before {
-      border-right-color: #377DFF !important;
-      border-bottom-color: #377DFF !important;
+      border-right-color: #474CDE !important;
+      border-bottom-color: #474CDE !important;
     }
 
   </style>
@@ -67,7 +67,7 @@
     </div>
 
     <div class="col s6 offset-s2">
-      <table id="signature"></table>
+      <div id="signature"></div>
     </div>
   </div>
 
@@ -89,16 +89,14 @@
       update();
       function update() {
         document.getElementById('signature').innerHTML = `
-        <tr style="border: none">
-          <td style="background: #8F98AA; padding: 0; width: 2px"></td>
-          <td style="color: #2F384A; font-size: 0.9em; line-height: 1.7em; padding: 25px">
-            <div style="color: #377DFF; font-size: 1.1em">${name.value}</div>
-            <div style="color: #6F788A">${jobTitle.value}</div>
-            <img src="png/logo.png" width="125" height="20" style="margin: 15px 2px">
+          <div style="color: #111111; font-size: 0.9em; line-height: 1.7em">
+            <div style="color: #474CDE; font-size: 1.1em">${name.value}</div>
+            <div style="color: #657C97">${jobTitle.value}</div>
+            <img src="png/logo.png" width="135" height="25" style="display: block; margin: 10px 0px">
             ${linkedin.value ? `
             <div>
               <img src="png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #2F384A; text-decoration: none">
+              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #111111; text-decoration: none">
                 ${linkedin.value}
               </a>
             </div>
@@ -106,27 +104,26 @@
             ${phoneNumber.value ? `
             <div>
               <img src="png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #2F384A; text-decoration: none">
+              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #111111; text-decoration: none">
                 ${phoneNumber.value}
               </a>
             </div>
             ` : ''}
             <div>
               <img src="png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://indebted.co" target="_blank" style="color: #2F384A; text-decoration: none">
+              <a href="https://indebted.co" target="_blank" style="color: #111111; text-decoration: none">
                 https://indebted.co
               </a>
             </div>
             ${showAddress.checked ? `
             <div>
               <img src="png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://www.google.com/maps/place/Level+5%2F99+Mount+St,+North+Sydney+NSW+2060" target="_blank" style="color: #2F384A; text-decoration: none">
+              <a href="https://www.google.com/maps/place/Level+5%2F99+Mount+St,+North+Sydney+NSW+2060" target="_blank" style="color: #111111; text-decoration: none">
                 Level 5, 99 Mount St, North Sydney, NSW 2060 Australia
               </a>
             </div>
             ` : ''}
-          </td>
-        </tr>
+          </div>
       `;
       }
 
