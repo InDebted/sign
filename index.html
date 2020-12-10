@@ -40,13 +40,13 @@
         <div class="card-content">
           <span class="card-title">Email Signature Builder</span>
           <p style="margin: 20px 0 10px">
-            <strong>Step 1 - </strong> Fill in the information you want in your signature below
+            <strong>Step 1 - </strong> Fill in the information you want in your signature
           </p>
           <p>
-            <strong>Step 2 - Gmail - </strong> Click the SELECT button, copy and paste the visual signature from here into your Gmail signature
+            <strong>Step 2 - Gmail - </strong> Click the SELECT button, copy and paste the visual signature into your Gmail signature
           </p>
           <p style="margin: 10px 0 30px">
-            <strong>Step 3 - Front - </strong> You must use raw editor mode only. Do not enter visual mode. Then, copy and paste the HTML code.
+            <strong>Step 3 - Front - </strong> You must use raw editor mode only. Do not enter visual mode. Then, copy and paste the HTML code
           </p>
           <div class="input-field">
             <input id="name" type="text" placeholder="Brooke Davis">
@@ -77,7 +77,7 @@
 
     <div class="col s6 offset-s2">
       <div id="signature"></div>
-      <textarea id="code" onclick="this.select()"></textarea>
+      <textarea style="border-radius: 4px" id="code" onclick="this.select()"></textarea>
     </div>
   </div>
 
@@ -99,40 +99,40 @@
       update();
       function update() {
         const code = `
-          <div style="color: #111111; font-size: 0.9em; line-height: 1.7em">
-            <div style="color: #474CDE; font-size: 1.1em">${name.value}</div>
+          <div style="font-size: 0.9em; line-height: 1.7em">
+            <div style="color: #111111; font-size: 1.1em">${name.value}</div>
             <div style="color: #657C97">${jobTitle.value}</div>
             <img src="https://indebted.github.io/sign/png/logo.png" width="135" height="25" style="display: block; margin: 10px 0px">
-            ${linkedin.value ? `
+            ${!linkedin.value ? '' : `
             <div>
-              <img src="https://indebted.github.io/sign/png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #111111; text-decoration: none">
+              <img src="https://indebted.github.io/sign/png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
+              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #111111; text-decoration: none !important">
                 ${linkedin.value}
               </a>
             </div>
-            ` : ''}
-            ${phoneNumber.value ? `
+            `}
+            ${!phoneNumber.value ? '' : `
             <div>
-              <img src="https://indebted.github.io/sign/png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #111111; text-decoration: none">
+              <img src="https://indebted.github.io/sign/png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
+              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #111111; text-decoration: none !important">
                 ${phoneNumber.value}
               </a>
             </div>
-            ` : ''}
+            `}
             <div>
-              <img src="https://indebted.github.io/sign/png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://indebted.co" target="_blank" style="color: #111111; text-decoration: none">
+              <img src="https://indebted.github.io/sign/png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
+              <a href="https://indebted.co" target="_blank" style="color: #111111; text-decoration: none !important">
                 https://indebted.co
               </a>
             </div>
-            ${showAddress.checked ? `
+            ${!showAddress.checked ? '' : `
             <div>
-              <img src="https://indebted.github.io/sign/png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub">
-              <a href="https://www.google.com/maps/place/Level+5%2F99+Mount+St,+North+Sydney+NSW+2060" target="_blank" style="color: #111111; text-decoration: none">
+              <img src="https://indebted.github.io/sign/png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
+              <a href="https://www.google.com/maps/place/Level+5%2F99+Mount+St,+North+Sydney+NSW+2060" target="_blank" style="color: #111111; text-decoration: none !important">
                 Level 5, 99 Mount St, North Sydney, NSW 2060 Australia
               </a>
             </div>
-            ` : ''}
+            `}
           </div>
         `;
         document.getElementById('signature').innerHTML = code;
