@@ -1,5 +1,5 @@
 # Sign
 
-Email signature builder
+Email Signature Builder
 
 https://indebted.github.io/sign

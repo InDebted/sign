@@ -5,162 +5,70 @@
   <title>Email Signature Builder</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <style>
-    .input-field input[type=text]:focus+label {
-      color: #474CDE !important;
-    }
-
-    .input-field input[type=text]:focus {
-      border-bottom: 1px solid #474CDE !important;
-      box-shadow: 0 1px 0 0 #474CDE !important;
-    }
-
-    [type="checkbox"]:checked+span:not(.lever):before {
-      border-right-color: #474CDE !important;
-      border-bottom-color: #474CDE !important;
-    }
-
-    #code {
-      color: #888;
-      font-family: monospace;
-      resize: none;
-      margin-top: 50px;
-      width: 500px;
-      height: 100px;
-    }
-  </style>
+  <link rel="preconnect" href="//fonts.gstatic.com">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet" href="//unpkg.com/browse/normalize.css@8.0.1/normalize.css">
+  <link rel="stylesheet" href="main.css">
 </head>
 
-<body style="padding: 50px 0 0 50px">
-  <div class="row">
+<body>
+  <form id="email-signature-builder">
+    <h1>Email Signature Builder</h1>
 
-    <div class="col s4">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">Email Signature Builder</span>
-          <p style="margin: 20px 0 10px">
-            <strong>Step 1 - </strong> Fill in the information you want in your signature
-          </p>
-          <p>
-            <strong>Step 2 - Gmail - </strong> Click the SELECT button, copy and paste the visual signature into your Gmail signature
-          </p>
-          <p style="margin: 10px 0 30px">
-            <strong>Step 3 - Front - </strong> You must use raw editor mode only. Do not enter visual mode. Then, copy and paste the HTML code
-          </p>
-          <div class="input-field">
-            <input id="name" type="text" placeholder="Brooke Davis">
-            <label for="name">Name</label>
-          </div>
-          <div class="input-field">
-            <input id="job-title" type="text" placeholder="Virtual Assistant">
-            <label for="job-title">Job Title</label>
-          </div>
-          <div class="input-field">
-            <input id="linkedin" type="text" placeholder="brookedavis">
-            <label for="linkedin">LinkedIn Username</label>
-          </div>
-          <div class="input-field">
-            <input id="phone-number" type="text" placeholder="+61 123 456 789">
-            <label for="phone-number">Phone Number</label>
-          </div>
-          <div style="margin-bottom: 20px">
-            <label>
-              <input id="show-address" type="checkbox" checked="checked" />
-              <span>Show Address</span>
-            </label>
-          </div>
-          <a id="select" class="waves-effect waves-light btn-large blue-grey darken-3">Select</a>
-        </div>
-      </div>
-    </div>
+    <p>
+      Please fill in the information you want to be displayed in your email signature.
+      Then, copy and paste <strong>either Rich Format or HTML Code</strong> according to your email client configuration:
+      <a href="https://support.google.com/mail/answer/8395?co=GENIE.Platform%3DDesktop&hl=en&oco=0" target="_blank">Gmail</a>,
+      <a href="https://help.frontapp.com/t/x129q2/how-to-create-or-edit-your-individual-signatures" target="_blank">Front</a>,
+      <a href="https://support.microsoft.com/en-us/office/create-and-add-a-signature-to-messages-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2" target="_blank">Outlook</a>.
+    </p>
 
-    <div class="col s6 offset-s2">
-      <div id="signature"></div>
-      <textarea style="border-radius: 4px" id="code" onclick="this.select()"></textarea>
-    </div>
-  </div>
+    <p>
+      <label class="text">Name</label>
+      <input id="name" type="text" placeholder="Brooke Davis">
+    </p>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const inputs = document.getElementsByTagName('input');
-      const name = document.getElementById('name');
-      const jobTitle = document.getElementById('job-title');
-      const linkedin = document.getElementById('linkedin');
-      const phoneNumber = document.getElementById('phone-number');
-      const showAddress = document.getElementById('show-address');
+    <p>
+      <label class="text">Job Title</label>
+      <input id="job-title" type="text" placeholder="Virtual Assistant">
+    </p>
 
-      for (let i = 0; i < inputs.length; i++) {
-        inputs.item(i).addEventListener('change', update);
-        inputs.item(i).addEventListener('keyup', update);
-      }
+    <p>
+      <label class="text">LinkedIn Username</label>
+      <input id="linkedin" type="text" placeholder="brookedavis">
+    </p>
 
-      update();
-      function update() {
-        const code = `
-          <div style="font-size: 0.9em; line-height: 1.7em">
-            <div style="color: #111111; font-size: 1.1em">${name.value}</div>
-            <div style="color: #657C97">${jobTitle.value}</div>
-            <img src="https://indebted.github.io/sign/png/logo.png" width="135" height="25" style="display: block; margin: 10px 0px">
-            ${!linkedin.value ? '' : `
-            <div>
-              <img src="https://indebted.github.io/sign/png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
-              <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #111111; text-decoration: none !important">
-                ${linkedin.value}
-              </a>
-            </div>
-            `}
-            ${!phoneNumber.value ? '' : `
-            <div>
-              <img src="https://indebted.github.io/sign/png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
-              <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #111111; text-decoration: none !important">
-                ${phoneNumber.value}
-              </a>
-            </div>
-            `}
-            <div>
-              <img src="https://indebted.github.io/sign/png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
-              <a href="https://indebted.co" target="_blank" style="color: #111111; text-decoration: none !important">
-                https://indebted.co
-              </a>
-            </div>
-            ${!showAddress.checked ? '' : `
-            <div>
-              <img src="https://indebted.github.io/sign/png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: sub !important">
-              <a href="https://www.google.com/maps/place/Level+5%2F99+Mount+St,+North+Sydney+NSW+2060" target="_blank" style="color: #111111; text-decoration: none !important">
-                Level 5, 99 Mount St, North Sydney, NSW 2060 Australia
-              </a>
-            </div>
-            `}
-          </div>
-        `;
-        document.getElementById('signature').innerHTML = code;
-        document.getElementById('code').value = code.trim();
-      }
+    <p>
+      <label class="text">Phone Number</label>
+      <input id="phone-number" type="text" placeholder="+61 444 123 789">
+    </p>
 
-      document.getElementById('select').addEventListener('click', () => {
-        const el = document.getElementById('signature');
-        let body = document.body, range, sel;
-        if (document.createRange && window.getSelection) {
-          range = document.createRange();
-          sel = window.getSelection();
-          sel.removeAllRanges();
-          try {
-            range.selectNodeContents(el);
-            sel.addRange(range);
-          } catch (e) {
-            range.selectNode(el);
-            sel.addRange(range);
-          }
-        } else if (body.createTextRange) {
-          range = body.createTextRange();
-          range.moveToElementText(el);
-          range.select();
-        }
-      });
-    });
-  </script>
+    <p class="radio-inline-group">
+      <input id="country-au" type="radio" name="country" value="Australia" checked />
+      <label for="country-au" class="radio">Australia</label>
+
+      <input id="country-ca" type="radio" name="country" value="Canada" />
+      <label for="country-ca" class="radio">Canada</label>
+
+      <input id="country-uk" type="radio" name="country" value="United Kingdom" />
+      <label for="country-uk" class="radio">United Kingdom</label>
+
+      <input id="country-us" type="radio" name="country" value="United States" />
+      <label for="country-us" class="radio">United States</label>
+    </p>
+
+    <p>
+      <button id="select-rich-format" type="button">SELECT RICH FORMAT</button>
+      <button id="select-html-code" type="button">SELECT HTML CODE</button>
+    </p>
+  </form>
+
+  <main>
+    <div id="signature"></div>
+    <textarea id="code"></textarea>
+  </main>
+
+  <script src="main.js"></script>
 </body>
 
 </html>
