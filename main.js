@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="//indebted.github.io/sign/png/logo.png" width="135" height="25" style="display: block; margin: 10px 0px">
         ${!linkedin.value ? '' : `
           <div>
-            <img src="//indebted.github.io/sign/png/linkedin.png" width="16" height="16" style="margin-right: 5px">
+            <img src="//indebted.github.io/sign/png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
             <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #111; text-decoration: none">
               ${linkedin.value}
             </a>
@@ -90,21 +90,21 @@ document.addEventListener('DOMContentLoaded', function() {
         `}
         ${!phoneNumber.value ? '' : `
           <div>
-            <img src="//indebted.github.io/sign/png/call.png" width="16" height="16" style="margin-right: 5px">
+            <img src="//indebted.github.io/sign/png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
             <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #111; text-decoration: none">
               ${phoneNumber.value}
             </a>
           </div>
         `}
         <div>
-          <img src="//indebted.github.io/sign/png/language.png" width="16" height="16" style="margin-right: 5px">
+          <img src="//indebted.github.io/sign/png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
           <a href="https://indebted.co" target="_blank" style="color: #111; text-decoration: none">
             https://indebted.co
           </a>
         </div>
         ${!countryMap[country.value] ? `` : `
           <div>
-            <img src="//indebted.github.io/sign/png/location.png" width="16" height="16" style="margin-right: 5px">
+            <img src="//indebted.github.io/sign/png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
             <a href="${countryMap[country.value].googleMapsURL}" target="_blank" style="color: #111; text-decoration: none">
               ${countryMap[country.value].address}
             </a>
