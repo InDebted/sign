@@ -109,9 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
               ${countryMap[country.value].address}
             </a>
           </div>
-          <div style="color: #111; font-size: 8pt; line-height: 12pt; margin-top: 15px">
-            ${countryMap[country.value].privacyStatement || ''}
-          </div>
+          ${!countryMap[country.value].privacyStatement ? `` : `
+            <div style="color: #111; font-size: 8pt; line-height: 12pt; margin-top: 15px">
+              ${countryMap[country.value].privacyStatement || ''}
+            </div>
+          `}
         `}
       </div>
     `;

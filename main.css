@@ -1,5 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
   margin: 25px;
 }
 
@@ -7,16 +8,16 @@ form {
   border: 1px solid #657c97;
   border-radius: 2px;
   display: inline-block;
-  margin-right: 50px;
+  margin-right: 25px;
   padding: 25px;
-  width: 620px;
+  width: 500px;
 }
 
 main {
   display: inline-block;
   margin-top: 25px;
   vertical-align: top;
-  width: 620px;
+  width: 700px;
 }
 
 h1 {
