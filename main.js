@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   const countryMap = {
     "Australia": {
-      address: "Level 6, 99 Mount Street, North Sydney, NSW 2060 Australia",
-      googleMapsURL: "https://www.google.com/maps/place/Level+5%2F99+Mount+St,+North+Sydney+NSW+2060"
+      address: "Level 24, Three International Towers, 300 Barangaroo Ave, Barangaroo NSW 2000, Australia",
+      googleMapsURL: "https://www.google.com/maps/place/The+Executive+Centre+-+Three+International+Towers+%7C+Coworking+Space,+Serviced+%26+Virtual+Offices+and+Workspace/@-33.8650495,151.2000392,17z/data=!3m2!4b1!5s0x6b12ae471d197fef:0x8c1a146c921d954!4m5!3m4!1s0x6b12af64e86b7829:0xf853cdd296370fae!8m2!3d-33.8650825!4d151.2018544"
     },
     "Canada": {
       address: "1 Yonge Street, Suite 1801, Toronto, ON M5E 1W7 Canada",
