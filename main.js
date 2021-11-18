@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  const defaultPrivacyStatement = "<strong>Confidentiality Notice:</strong> The contents of  this email message and any attachments are intended solely for the addressee(s) and may contain confidential and / or privileged information and may be legally protected from disclosure. If you are not the intended recipient of this message, or if this message has been addressed to you in error, please immediately notify the sender by email and delete this message and attachment. If you are not the intended recipient, you are hereby notified that any use, dissemination, copying, storage or distribution of this message and attachment is strictly prohibited. Thank you."
+
   renderEmailSignature();
   initialiseListeners();
 
@@ -109,11 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
               ${countryMap[country.value].address}
             </a>
           </div>
-          ${!countryMap[country.value].privacyStatement ? `` : `
-            <div style="color: #111; font-size: 8pt; line-height: 12pt; margin-top: 15px">
-              ${countryMap[country.value].privacyStatement || ''}
-            </div>
-          `}
+          <div style="color: #111; font-size: 8pt; line-height: 12pt; margin-top: 15px">
+            ${countryMap[country.value].privacyStatement || defaultPrivacyStatement}
+          </div>
         `}
       </div>
     `;
