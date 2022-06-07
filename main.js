@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
       googleMapsURL: "https://www.google.com/maps/place/16+High+Holborn,+London+WC1V+6BX,+UK"
     },
     "United States": {
-      address: "P.O. Box 1210 O'Fallon, MO 63366, United States",
-      googleMapsURL: "https://www.google.com/maps/place/O'Fallon,+MO+63366,+USA",
+      address: "P.O. Box 1201 Farmington, MO 63640, United States",
+      googleMapsURL: "https://www.google.com/maps/place/Farmington,+MO+63640,+USA",
       privacyStatement: "<strong>Notice:</strong> This communication is from a debt collector. This may be an attempt to collect a debt. Any information obtained will be used for that purpose. This electronic mail message is intended exclusively for the individual or entity to which it is addressed. This message, together with any attachment, may contain confidential and privileged information. Any unauthorized review, use, print, retain, copy, disclosure, or distribution is strictly prohibited. If you have received this message in error, please immediately advise the sender by reply email message to the sender and delete all copies of this message. Thank you."
     }
   }
