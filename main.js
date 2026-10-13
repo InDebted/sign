@@ -1,21 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
   const countryMap = {
     "Australia": {
-      address: "Level 24, Three International Towers, 300 Barangaroo Ave, Barangaroo NSW 2000, Australia",
-      googleMapsURL: "https://www.google.com/maps/place/The+Executive+Centre+-+Three+International+Towers+%7C+Coworking+Space,+Serviced+%26+Virtual+Offices+and+Workspace/@-33.8650495,151.2000392,17z/data=!3m2!4b1!5s0x6b12ae471d197fef:0x8c1a146c921d954!4m5!3m4!1s0x6b12af64e86b7829:0xf853cdd296370fae!8m2!3d-33.8650825!4d151.2018544"
+      address: "Level 14/333 Kent St, Sydney NSW 2000, Australia",
+      googleMapsURL: "https://www.google.com/maps/search/?api=1&query=Level+14%2F333+Kent+St%2C+Sydney+NSW+2000%2C+Australia"
     },
     "Canada": {
-      address: "1 Yonge Street, Suite 1801, Toronto, ON M5E 1W7 Canada",
-      googleMapsURL: "https://www.google.com/maps/place/1+Yonge+St+%231801,+Toronto,+ON+M5E+1W7,+Canada"
+      address: "18 King Street East, Suite 1400, Toronto, ON M5C 1C4, Canada",
+      googleMapsURL: "https://www.google.com/maps/search/?api=1&query=18+King+Street+East%2C+Suite+1400%2C+Toronto%2C+ON+M5C+1C4%2C+Canada"
     },
     "United Kingdom": {
-      address: "16 High Holborn, London, England, WC1V 6BX",
-      googleMapsURL: "https://www.google.com/maps/place/16+High+Holborn,+London+WC1V+6BX,+UK"
+      address: "16 High Holborn, London WC1V 6BX, United Kingdom",
+      googleMapsURL: "https://www.google.com/maps/search/?api=1&query=16+High+Holborn%2C+London+WC1V+6BX%2C+United+Kingdom"
     },
     "United States": {
-      address: "P.O. Box 1201 Farmington, MO 63640, United States",
-      googleMapsURL: "https://www.google.com/maps/place/Farmington,+MO+63640,+USA",
+      address: "1551 Emancipation Hwy, Unit 1511, Fredericksburg, VA 22401",
+      googleMapsURL: "https://www.google.com/maps/search/?api=1&query=1551+Emancipation+Hwy%2C+Unit+1511%2C+Fredericksburg%2C+VA+22401",
       privacyStatement: "<strong>Notice:</strong> This communication is from a debt collector. This may be an attempt to collect a debt. Any information obtained will be used for that purpose. This electronic mail message is intended exclusively for the individual or entity to which it is addressed. This message, together with any attachment, may contain confidential and privileged information. Any unauthorized review, use, print, retain, copy, disclosure, or distribution is strictly prohibited. If you have received this message in error, please immediately advise the sender by reply email message to the sender and delete all copies of this message. Thank you."
+    },
+    "UAE": {
+      address: "Office 32 & 33, 1st Floor, The Place – B1 Mall, Al Barsha 1, Dubai, UAE",
+      googleMapsURL: "https://www.google.com/maps/search/?api=1&query=Office+32+%26+33%2C+1st+Floor%2C+The+Place+%E2%80%93+B1+Mall%2C+Al+Barsha+1%2C+Dubai%2C+UAE"
     }
   }
 
@@ -81,10 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
       <div>
         <div style="color: #111">${name.value}</div>
         <div style="color: #657c97">${jobTitle.value}</div>
-        <img src="//indebted.github.io/sign/png/logo.png" width="135" height="25" style="display: block; margin: 10px 0px">
+        <img src="https://indebted.github.io/sign/png/logo.png" width="135" height="24" style="display: block; margin: 10px 0px">
         ${!linkedin.value ? '' : `
           <div>
-            <img src="//indebted.github.io/sign/png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
+            <img src="https://indebted.github.io/sign/png/linkedin.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
             <a href="https://linkedin.com/in/${linkedin.value}" target="_blank" style="color: #111; text-decoration: none">
               ${linkedin.value}
             </a>
@@ -92,21 +96,21 @@ document.addEventListener('DOMContentLoaded', function() {
         `}
         ${!phoneNumber.value ? '' : `
           <div>
-            <img src="//indebted.github.io/sign/png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
+            <img src="https://indebted.github.io/sign/png/call.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
             <a href="tel:${phoneNumber.value.replace(/\s/g, '')}" target="_blank" style="color: #111; text-decoration: none">
               ${phoneNumber.value}
             </a>
           </div>
         `}
         <div>
-          <img src="//indebted.github.io/sign/png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
+          <img src="https://indebted.github.io/sign/png/language.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
           <a href="https://indebted.co" target="_blank" style="color: #111; text-decoration: none">
             https://indebted.co
           </a>
         </div>
         ${!countryMap[country.value] ? `` : `
           <div>
-            <img src="//indebted.github.io/sign/png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
+            <img src="https://indebted.github.io/sign/png/location.png" width="16" height="16" style="margin-right: 5px; vertical-align: middle">
             <a href="${countryMap[country.value].googleMapsURL}" target="_blank" style="color: #111; text-decoration: none">
               ${countryMap[country.value].address}
             </a>
